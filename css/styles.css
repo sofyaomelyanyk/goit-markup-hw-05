@@ -150,6 +150,32 @@ body {
 .site-nav a:focus {
   color: var(--accent-color);
 }
+
+.link.header-link {
+  position: relative;
+}
+
+.current.header-link::after {
+  opacity: 1;
+}
+
+.header-link::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+
+  background: #2196f3;
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.header-link:hover::after {
+  opacity: 1;
+}
+
 /*Контакты*/
 
 .contacts-header {
@@ -309,8 +335,11 @@ body {
 .job-list {
   display: flex;
 }
+.job-item {
+  position: relative;
+}
 
-.job-list .item + .item {
+.job-item + .job-item {
   margin-left: 30px;
 }
 
@@ -325,6 +354,28 @@ body {
   line-height: 1.16;
   text-align: center;
 }
+
+.job-subtitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--primary-white-color);
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+/* НАША КОМАНДА*/
 
 .team-list {
   display: flex;
@@ -523,6 +574,38 @@ body {
   line-height: 1.9;
 }
 
+.work-thumb {
+  position: relative;
+}
+
+.thumb-text-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+
+  background: rgba(33, 150, 243, 0.9);
+}
+
+.thumb-text-box:hover {
+  opacity: 1;
+}
+
+.work-thumb-text {
+  margin-bottom: 0;
+  padding: 63px 24px;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+
+  color: var(--primary-white-color);
+}
+
 /* Footer */
 
 .footer {
@@ -589,6 +672,54 @@ body {
 
   color: var(--primary-white-color);
 }
+
+/* Модальное окно */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--primary-white-color);
+}
+
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+
+  color: rgba(0, 0, 0, 1);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 
 /* Скрытый заголовок */
 
