@@ -552,7 +552,7 @@ body {
 .work-item {
   width: calc((100% - 60px) / 3);
 
-  overflow: hidden;
+  
 
   background-color: var(--primary-white-color);
   border: 1px solid var(--border-color);
@@ -590,6 +590,7 @@ body {
 
 .work-thumb {
   position: relative;
+  overflow: hidden;
 }
 
 .thumb-text-box {
