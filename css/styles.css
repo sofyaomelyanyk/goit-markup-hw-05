@@ -58,6 +58,7 @@ address {
 }
 
 :root {
+  --animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --primary-text-color: #212121;
   --secondary-color: #757575;
   --accent-color: #2196f3;
@@ -170,10 +171,13 @@ body {
   background: #2196f3;
   border-radius: 2px;
   opacity: 0;
+  /* transform: scaleX(0); */
+  transition: opacity 250ms var(--animation-timing-function);
 }
 
 .header-link:hover::after {
   opacity: 1;
+  /* transform: scaleX(1); */
 }
 
 /*Контакты*/
@@ -200,6 +204,8 @@ body {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
+
+  transition: color 250ms var(--animation-timing-function);
 }
 
 .contacts-item .link:hover,
@@ -282,12 +288,6 @@ body {
   text-align: center;
   letter-spacing: 0.06em;
   cursor: pointer;
-}
-
-.button:hover,
-.button:focus {
-  background-color: var(--background-color);
-  color: var(--primary-text-color);
 }
 
 /* Features */
@@ -435,6 +435,9 @@ body {
   border-radius: 50%;
   background-color: var(--primary-white-color);
   color: #afb1b8;
+
+  transition: color 250ms var(--animation-timing-function),
+    background-color 250ms var(--animation-timing-function);
 }
 
 .social-icon:hover,
@@ -478,6 +481,9 @@ body {
   border: 1px solid #afb1b8;
   border-radius: 4px;
   color: #afb1b8;
+
+  transition: color 250ms var(--animation-timing-function),
+    background-color 250ms var(--animation-timing-function);
 }
 
 .clients-item:hover,
@@ -523,6 +529,9 @@ body {
 
 .btn {
   padding: 6px 22px;
+  transition: box-shadow 250ms var(--animation-timing-function),
+    color 250ms var(--animation-timing-function),
+    background-color 250ms var(--animation-timing-function);
 }
 
 .btn.current,
@@ -543,8 +552,13 @@ body {
 .work-item {
   width: calc((100% - 60px) / 3);
 
+  overflow: hidden;
+
   background-color: var(--primary-white-color);
   border: 1px solid var(--border-color);
+
+  transition: background-color 250ms var(--animation-timing-function),
+    border 250ms var(--animation-timing-function);
 }
 
 .work-item:hover,
@@ -586,14 +600,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(33, 150, 243, 0.9);
 
   opacity: 0;
+  transform: translateX(-100%);
 
-  background: rgba(33, 150, 243, 0.9);
+  transition: opacity 250ms var(--animation-timing-function),
+    transform 250ms var(--animation-timing-function);
 }
 
-.thumb-text-box:hover {
+
+.work-item:hover .thumb-text-box {
   opacity: 1;
+  transform: translateX(0);
 }
 
 .work-thumb-text {
@@ -719,7 +738,6 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
-
 
 /* Скрытый заголовок */
 
