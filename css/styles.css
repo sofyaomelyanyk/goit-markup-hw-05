@@ -156,28 +156,31 @@ body {
   position: relative;
 }
 
-.current.header-link::after {
-  opacity: 1;
-}
-
 .header-link::after {
   position: absolute;
   content: "";
   width: 100%;
   height: 4px;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
 
   background: #2196f3;
   border-radius: 2px;
+
+  transform: scaleX(0);
   opacity: 0;
-  /* transform: scaleX(0); */
-  transition: opacity 250ms var(--animation-timing-function);
+  transition: opacity 250ms var(--animation-timing-function),
+    transform 250ms var(--animation-timing-function);
 }
 
 .header-link:hover::after {
   opacity: 1;
-  /* transform: scaleX(1); */
+  transform: scaleX(1);
+}
+
+.current.header-link::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 /*Контакты*/
@@ -195,6 +198,7 @@ body {
 }
 
 .contacts-item .link {
+  gap: 10px;
   display: inline-flex;
   align-items: center;
   padding-top: 32px;
@@ -211,11 +215,6 @@ body {
 .contacts-item .link:hover,
 .contacts-item .link:focus {
   color: var(--accent-color);
-}
-
-.header-icon {
-  margin-right: 10px;
-  color: currentColor;
 }
 
 .icon-mailto,
@@ -278,6 +277,7 @@ body {
   padding: 10px 32px;
   border-radius: 4px;
   border: 1px solid transparent;
+  box-shadow: 0px 4px 4pxrgba (0, 0, 0, 0.15);
 
   background-color: var(--accent-color);
   color: var(--primary-white-color);
@@ -288,6 +288,14 @@ body {
   text-align: center;
   letter-spacing: 0.06em;
   cursor: pointer;
+
+  transform: scale(1);
+  transition: transform 250ms var(--animation-timing-function);
+}
+
+.button:hover,
+.button:focus {
+  transform: scale(1.05);
 }
 
 /* Features */
@@ -552,8 +560,6 @@ body {
 .work-item {
   width: calc((100% - 60px) / 3);
 
-  
-
   background-color: var(--primary-white-color);
   border: 1px solid var(--border-color);
 
@@ -598,6 +604,8 @@ body {
   bottom: 0;
   left: 0;
 
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -737,6 +745,19 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
+
+  transform: scale(1);
+  transition: color 250ms var(--animation-timing-function),
+    transform 250ms var(--animation-timing-function);
+}
+
+.modal-button:hover {
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.modal-button-icon {
+  fill: currentColor;
 }
 
 /* Скрытый заголовок */
